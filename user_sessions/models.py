@@ -49,7 +49,7 @@ class Session(models.Model):
 
     user = models.ForeignKey(getattr(settings, 'AUTH_USER_MODEL', 'auth.User'),
                              null=True, on_delete=models.CASCADE)
-    user_agent = models.CharField(null=True, blank=True, max_length=200)
+    user_agent = models.TextField(null=True, blank=True)
     last_activity = models.DateTimeField(auto_now=True)
     ip = models.GenericIPAddressField(null=True, blank=True, verbose_name='IP')
 
