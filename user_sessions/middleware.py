@@ -20,7 +20,7 @@ def get_ip(request):
     if request.META.get('HTTP_X_FORWARDED_FOR') is None:
         ip_address = request.META.get('REMOTE_ADDR')
     else:
-        ip_address = request.META.get('HTTP_X_FORWARDED_FOR')
+        ip_address = request.META.get('HTTP_X_FORWARDED_FOR').split(', ')[-1]
     return ip_address
 
 
